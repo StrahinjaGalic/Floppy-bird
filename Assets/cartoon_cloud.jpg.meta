@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cartoon_cloud_0: -3359081098617500486
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

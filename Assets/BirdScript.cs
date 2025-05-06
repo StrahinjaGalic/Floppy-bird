@@ -11,7 +11,8 @@ public class BirdScript : MonoBehaviour
     void Start()
     {
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>(); 
-
+        logic.pauseGame(); //game is paused until user input :3
+        
     }
 
     // Update is called once per frame
@@ -19,6 +20,13 @@ public class BirdScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGameOver == false)
         {
+            logic.startText.SetActive(false); // hiding the start text
+
+            if (logic.isGamePaused == true)
+            {
+                logic.resumeGame();
+            }
+
             rigidBody2D.linearVelocity = Vector2.up * flapForce;
         }
         
