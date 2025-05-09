@@ -2,6 +2,12 @@ using UnityEngine;
 using UnityEngine.UI; // for text
 using UnityEngine.SceneManagement; // for scene management
 
+public enum alphaValue
+{
+    SHRINKING,
+    GROWING
+}
+
 public class LogicScript : MonoBehaviour
 {
     public int score = 0;
@@ -9,6 +15,14 @@ public class LogicScript : MonoBehaviour
     public GameObject gameOverPanel;
     public GameObject startText;
     public bool isGamePaused = false;
+    public bool isRunning = false;
+
+    //used for manipulating start text
+    public alphaValue currentAlphaValue;
+    public float CommentMinAlpha;
+    public float CommentMaxAlpha;
+    public float CommentCurrentAlpha;
+    public float flashSpeed = 0.5f; // lower = slower flashing
 
 
     [ContextMenu("Increase Score")]
@@ -45,5 +59,10 @@ public class LogicScript : MonoBehaviour
         isGamePaused = false;
     }
 
+    public void DestroyStartText()
+    {
+        Destroy(startText);
+        isRunning = true;
+    }
 
 }
